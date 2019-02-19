@@ -1,12 +1,16 @@
 #include<iostream>
 #include"Block.hpp"
-using namespace std;
+
 
 int main()
 {
-	Block MyBlock=Block(1, "asdasdasdasd", "adsfasdfcvzxas", "first try to block block chain");
-	cout << MyBlock.getHash() << endl;
-	cout << MyBlock.getIndex() << endl;
+	std::vector<std::string> mydata;
+	mydata.push_back("Transaction 1");
+	mydata.push_back("Transaction 2");
+	mydata.push_back("Transaction 3");
+	Block MyBlock=Block(1, "asdasdasdasd", "adsfasdfcvzxas", "first try to block block chain",mydata);
+	std::cout << MyBlock.getHash() << std::endl;
+	std::cout << MyBlock.getIndex() << std::endl;
 	getchar();
 	return 0;
 }

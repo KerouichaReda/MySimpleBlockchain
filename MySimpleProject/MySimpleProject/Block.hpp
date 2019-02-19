@@ -3,24 +3,24 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+
 class Block
 {
 public:
-	Block(int Index, string PreviousHash , string Hash, string nonce);
+	Block(int Index, std::string PreviousHash , std::string Hash, std::string nonce, std::vector<std::string> data);
 	int getIndex(void);
-	string getHash();
-	//vector<string> getData();
+	std::string getHash();
+	std::vector<std::string> getData();
 	void toString();
 
 
 
 private:
 	int index;
-	string previousHash;
-	string blockHash;
-	string nonce;
-	//vector<string> data;
+	std::string previousHash;
+	std::string blockHash;
+	std::string nonce;
+	std::vector<std::string> data;
 
 
 };
