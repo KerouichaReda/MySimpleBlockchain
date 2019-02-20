@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Block
 {
@@ -11,7 +12,8 @@ public:
 	int getIndex(void);
 	std::string getHash();
 	std::vector<std::string> getData();
-	void toString();
+	nlohmann::json toJSON();
+	void displayblock();
 
 
 
