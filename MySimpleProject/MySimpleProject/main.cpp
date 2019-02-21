@@ -1,5 +1,6 @@
 #include<iostream>
 #include"Block.hpp"
+#include"Hash.h"
 
 
 int main()
@@ -10,7 +11,16 @@ int main()
 	mydata.push_back("2a8cd536308771fa93593a84ef1f92de821c782ea099e251a14afc93efa892f0 ");
 
 	Block MyBlock=Block(563849, "00000000000000000001fbe60c55caac208cd9d1d5e318f8fe3b732c8fafc247", "0000000000000000000bb03a224520c5ef7d3270d06c0aff09f39a003033e842", "2596959192",mydata);
-	MyBlock.displayblock();
+	//MyBlock.displayblock();
+	std::cout << std::endl << sha256("Test1") << std::endl;
+	std::cout << std::endl << sha256("Test2") << std::endl;
+	std::cout << std::endl << sha256("Test3") << std::endl;
+	std::cout << std::endl << sha256("Test4") << std::endl;
+	std::cout << std::endl << sha256("Test5") << std::endl;
+	std::cout << std::endl << sha256("Test6") << std::endl;
+	std::cout << std::endl << sha256("Test7") << std::endl;
+	std::cout << std::endl << sha256("Test8") << std::endl;
+	std::cout << std::endl << sha256("Test9") << std::endl;
 	getchar();
 	return 0;
 }
