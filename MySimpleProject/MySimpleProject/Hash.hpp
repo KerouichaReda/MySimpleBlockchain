@@ -1,5 +1,5 @@
-#ifndef HASH_H
-#define HASH_H
+#ifndef HASH_HPP
+#define HASH_HPP
 
 #include<iostream>
 #include<sstream>
@@ -24,5 +24,5 @@ std::string sha256(std::string str)
 	return ss.str(); 
 }
 
-#endif // !HASH_H
+#endif // !HASH_HPP
 
