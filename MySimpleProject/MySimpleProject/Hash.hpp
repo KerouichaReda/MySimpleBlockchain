@@ -1,13 +1,17 @@
-#ifndef HASH_HPP
-#define HASH_HPP
+#ifndef HASH_H
+#define HASH_H
 
-#include<iostream>
+//#include<iostream>
 #include<sstream>
-#include<string>
+//#include<string>
 #include<iomanip>
 
 #include<openssl/sha.h>
 #include<openssl/ripemd.h>
+namespace hash
+{
+
+
 
 std::string sha256(std::string str)
 {
@@ -23,6 +27,6 @@ std::string sha256(std::string str)
 	}
 	return ss.str(); 
 }
-
+}
 #endif // !HASH_HPP
 

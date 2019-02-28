@@ -1,5 +1,6 @@
 #include "Block.hpp"
-#include <nlohmann/json.hpp>
+
+
 Block::Block(int Index, std::string PreviousHash, std::string Hash, std::string nonce, std::vector<std::string> data)
 {
 	std::cout << "Initializing Block " << Index << " --- Hash: s" << Hash.c_str() << std::endl;

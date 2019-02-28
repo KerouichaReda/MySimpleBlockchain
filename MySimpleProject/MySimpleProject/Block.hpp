@@ -1,6 +1,7 @@
 #ifndef BLOCK_H
 #define BLOCK_H
-#include <iostream>
+
+#include<iostream>
 #include <vector>
 #include <string>
 #include <nlohmann/json.hpp>
@@ -15,8 +16,6 @@ public:
 	nlohmann::json toJSON();
 	void displayblock();
 
-
-
 private:
 	int index;
 	std::string previousHash;
@@ -24,9 +23,8 @@ private:
 	std::string nonce;
 	std::vector<std::string> data;
 
-
 };
 
 
-#endif // !BLOCK_H
+#endif // !BLOCK_HPP
 
