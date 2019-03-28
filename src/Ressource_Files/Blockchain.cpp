@@ -1,45 +1,29 @@
-#ifndef BLOCKCHAIN_HPP
-#define BLOCKCHAIN_HPP
-
+#include"../Header_Files/Blockchain.hpp"
 #include <vector>
 #include <string>
 #include<memory>
 #include<stdexcept>
 #include<nlohmann/json.hpp>
-#include"Block.hpp"
-#include"Common.hpp"
+#include"../Header_Files/Hash.hpp"
+#include"../Header_Files/Common.hpp"
 
-class Blockchain
-{
-public:
-	Blockchain(int genesis =1);
-	Block getBlock(int index);
-	//Block getBlocks(std::string hash);
-	int getNumBlocks(void);
-	int addBlock(int index, std::string prevHash, std::string hash, std::string nonce, std::vector < std::string >  &merkel);
-	std::string getLatestBlockHash(void);
-	//void toString(void);
-	std::string toJSON(void);
-	int replaceChain(nlohmann::json chain);
 
-private:
-	std::vector<std::unique_ptr<Block>> blockchain; //vector that is the blockchain
 
-};
 
 Blockchain::Blockchain(int genesis)
 {
 	if (genesis == 0)
 	{
 		std::vector<std::string> v;
-		v.push_back("genesis block!");
+		v.push_back("Genesis Block!");
 		auto hash_nonce_pair = Common::findHash(0, std::string("00000000000000"), v);
 		this->blockchain.push_back(std::make_unique<Block>(0, std::string("00000000000000"), hash_nonce_pair.first, hash_nonce_pair.second, v));
 
-		std::cout << "created blockchain" << std::endl;
+		std::cout << "Created Blockchain" << std::endl;
 
 	}
 }
+
 Block Blockchain::getBlock(int index)
 {
 	for (unsigned int i = 0; i < blockchain.size(); i++)
@@ -102,4 +86,3 @@ int Blockchain::replaceChain(nlohmann::json chain)
 	}
 	return 1;
 }
-#endif // !BLOCKCHAIN_HPP

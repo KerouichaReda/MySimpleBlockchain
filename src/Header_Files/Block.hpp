@@ -1,11 +1,8 @@
 #ifndef BLOCK_H
 #define BLOCK_H
-
-#include<iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <nlohmann/json.hpp>
-
 class Block
 {
 public:

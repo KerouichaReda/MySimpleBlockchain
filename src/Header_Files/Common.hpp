@@ -25,7 +25,7 @@ std::pair <std::string, std::string > findHash(int index, std::string prevHash, 
 	}
 	return std::make_pair("fail", "fail");
 }
-
+ 
 std::string getMerkleRoot(const std::vector<std::string> &merkel)
 {
 	std::cout << "Finding Merkel Root..." << std::endl;
