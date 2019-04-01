@@ -7,9 +7,9 @@ using std::endl;
 
 int main(int argc, char *argv[])
 {
-    string input = "grape";
+    string input = "Blockchaindelali";
     string output1 = sha256(input);
-
-    cout << "sha256('"<< input << "'):" << output1 << endl;
+    cout << "sha256('"<< input << "'):"<<endl << output1 << endl;
     return 0;
 }
+
