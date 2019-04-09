@@ -16,8 +16,10 @@ Blockchain::Blockchain(int genesis)
 	{
 		std::vector<std::string> v;
 		v.push_back("Genesis Block!");
+		//string header to_string(0)+string("00000000000000") +getMerkelRoot(v)
 		auto hash_nonce_pair = Common::findHash(0, std::string("00000000000000"), v);
-		this->blockchain.push_back(std::make_unique<Block>(0, std::string("00000000000000"), hash_nonce_pair.first, hash_nonce_pair.second, v));
+		this->blockchain.push_back(std::make_unique<Block>(0, std::string("00000000000000"),
+		hash_nonce_pair.first, hash_nonce_pair.second, v));
 
 		std::cout << "Created Blockchain" << std::endl;
 
@@ -42,9 +44,10 @@ int Blockchain::getNumBlocks()
 }
 
 // Checks wether data fits with the right hash -> add block
-int Blockchain::addBlock(int index, std::string prevHash, std::string hash, std::string nonce, std::vector<std::string> &merkle)
+int Blockchain::addBlock(int index, std::string prevHash, std::string hash, std::string nonce,
+	std::vector<std::string> &merkle)
 {
-	std::string header = std::to_string(index) + prevHash + nonce;//+getMerkelRoot(merkle)
+	std::string header = std::to_string(index) + prevHash + Common::getMerkleRoot(merkle) + nonce;//+getMerkelRoot(merkle)
 	if (!hash::sha256(header).compare(hash) && (hash.substr(0, 2) == "00") && (index == blockchain.size()))
 	{
 		std::cout << "Block hashes match --- Adding Block " << hash.c_str() << std::endl;

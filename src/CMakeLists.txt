@@ -7,14 +7,12 @@ find_package(OpenSSL REQUIRED)
 #Set Source Header_Files
 SET(PROJECT_SOURCE_FILES
 main.cpp
-Ressource_Files/sha256.cpp
 Ressource_Files/Block.cpp
 Ressource_Files/Blockchain.cpp)
 #Set Header_Files
 
 SET(PROJECT_HEADER_FILES
 Header_Files/Hash.hpp
-Header_Files/sha256.hpp
 Header_Files/Blockchain.hpp
 Header_Files/Common.hpp
 Header_Files/Block.hpp)

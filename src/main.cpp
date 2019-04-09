@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Header_Files/sha256.hpp"
+#include<string>
 
 using std::string;
 using std::cout;
@@ -7,9 +7,9 @@ using std::endl;
 
 int main(int argc, char *argv[])
 {
-    string input = "Blockchaindelali";
-    string output1 = sha256(input);
-    cout << "sha256('"<< input << "'):"<<endl << output1 << endl;
+    std::string input = "Blockchaindelali";
+    
+	std::cout << input ;
     return 0;
 }
 

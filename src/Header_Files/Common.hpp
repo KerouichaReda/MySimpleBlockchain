@@ -8,24 +8,7 @@
 #include"Hash.hpp"
 
 namespace Common
-{
-std::pair <std::string, std::string > findHash(int index, std::string prevHash, std::vector<std::string> &merkle)
-{
-	
-	std::string header = std::to_string(index) + prevHash;//getMerkelRoot(merkle);
-	unsigned int nonce;
-	for (nonce = 0; nonce < 10000000; nonce++)
-	{
-		std::string blockhash = hash::sha256(header + std::to_string(nonce));
-		if (blockhash.substr(0,2)=="00")
-		{
-			return std::make_pair(blockhash, std::to_string(nonce));
-			break;
-		}
-	}
-	return std::make_pair("fail", "fail");
-}
- 
+{ 
 std::string getMerkleRoot(const std::vector<std::string> &merkel)
 {
 	std::cout << "Finding Merkel Root..." << std::endl;
@@ -55,6 +38,33 @@ std::string getMerkleRoot(const std::vector<std::string> &merkel)
 		new_merkel = result;
 	}
 	return new_merkel[0];
+}
+
+std::pair <std::string, std::string > findHash(int index, std::string prevHash, std::vector<std::string> &merkle)
+{
+
+	std::string header = std::to_string(index) + prevHash + getMerkleRoot(merkle);//+getMerkleRoot(merkle);
+	unsigned int nonce;
+	for (nonce = 0; nonce < 1000000; nonce++)
+	{
+		std::string blockhash = hash::sha256(header + std::to_string(nonce));
+		if (blockhash.substr(0, 2) == "00")
+		{
+			return std::make_pair(blockhash, std::to_string(nonce));
+			break;
+		}
+	}
+	return std::make_pair("fail", "fail");
+}
+void print_hex(const char *label, const uint8_t *v, size_t len)
+{
+	size_t i;
+	printf("%s: ", label);
+	for ( i = 0; i < len; ++i)
+	{
+		printf("%02x", v[i]);
+	}
+	printf("\n");
 }
 
 }
